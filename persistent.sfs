@@ -11,7 +11,7 @@ GAME
 	scene = 5
 	editor = None
 	flag = Squad/Flags/esa_dark_blue
-	launchID = 15
+	launchID = 16
 	modded = True
 	envInfo =  - Environment Info - Win32NT 7FFFFFFFFFFFFFFF  Args: KSP_x64.exe  - 
 	versionFull = 1.2.2.1622 (WindowsPlayer x64)
@@ -95,6 +95,37 @@ GAME
 			RepLossMultiplier = 1
 			RepLossDeclined = 1
 		}
+		StockContractParametersTemplate
+		{
+			ARMContract = True
+			BaseContract = True
+			CollectScience = True
+			ExplorationContract = True
+			PlantFlag = True
+			GrandTour = True
+			ISRUContract = True
+			PartTest = True
+			RecoverAsset = True
+			SatelliteContract = True
+			StationContract = True
+			SurveyContract = True
+			TourismContract = True
+		}
+		ContractConfiguratorParameters
+		{
+			DisplayOfferedOrbits = True
+			DisplayActiveOrbits = True
+			DisplayOfferedWaypoints = True
+			DisplayActiveWaypoints = True
+			ActiveContractMultiplier = 1
+			lastMCButton = All
+			lastMCButton = All
+		}
+		ContractGroupParameters
+		{
+			ScanSatOfficial = True
+			STGUnmannedMissions = True
+		}
 		CommNetParams
 		{
 			requireSignalForControl = False
@@ -152,21 +183,13 @@ GAME
 	}
 	SCENARIO
 	{
-		name = ScenarioNewGameIntro
-		scene = 5, 6, 8
-		kscComplete = True
-		editorComplete = True
-		tsComplete = False
-	}
-	SCENARIO
-	{
 		name = ProgressTracking
 		scene = 7, 8, 5
 		Progress
 		{
 			FirstLaunch
 			{
-				completedManned = 686.58756591770054
+				completed = 686.58756591770054
 			}
 			FirstCrewToSurvive
 			{
@@ -198,7 +221,7 @@ GAME
 			}
 			ReachedSpace
 			{
-				completedManned = 3933.7177563445757
+				completed = 3933.7177563445757
 				vessel
 				{
 					name = Ridin'Dirty
@@ -227,7 +250,7 @@ GAME
 				}
 				Escape
 				{
-					completedManned = 23887.129663522159
+					completed = 23887.129663522159
 				}
 				Landing
 				{
@@ -307,7 +330,7 @@ GAME
 				}
 				Escape
 				{
-					completedManned = 43067.953654508448
+					completed = 43067.953654508448
 				}
 				Landing
 				{
@@ -324,7 +347,7 @@ GAME
 				}
 				Science
 				{
-					completedManned = 57578.582045649593
+					completed = 57578.582045649593
 					vessel
 					{
 						name = Ridin'Dirty
@@ -379,7 +402,7 @@ GAME
 				}
 				Flyby
 				{
-					completedManned = 23887.129663522159
+					completed = 23887.129663522159
 				}
 				ReturnFromFlyBy
 				{
@@ -408,13 +431,43 @@ GAME
 					}
 				}
 			}
+			Minmus
+			{
+				reached = 345503.59015486564
+				Orbit
+				{
+					completedUnmanned = 353486.58671292529
+					vessel
+					{
+						name = MC Beethoven
+						flag = Squad/Flags/esa_dark_blue
+					}
+				}
+				Escape
+				{
+					completedUnmanned = 2314254.8357673255
+				}
+				Science
+				{
+					completedUnmanned = 2293210.5650713244
+					vessel
+					{
+						name = MC Beethoven
+						flag = Squad/Flags/esa_dark_blue
+					}
+				}
+				Flyby
+				{
+					completedUnmanned = 345503.59015486564
+				}
+			}
 		}
 	}
 	SCENARIO
 	{
 		name = ResearchAndDevelopment
 		scene = 7, 8, 5, 6
-		sci = 53.7376709
+		sci = 138.355499
 		Tech
 		{
 			id = start
@@ -493,6 +546,8 @@ GAME
 			part = science.module
 			part = batteryPack
 			part = probeCoreSphere
+			part = JSIPrimitiveExternalCamera
+			part = SCANsat.Scanner
 		}
 		Tech
 		{
@@ -713,6 +768,7 @@ GAME
 			part = telescopicLadderBay
 			part = telescopicLadder
 			part = Large.Crewed.Lab
+			part = SCANsat.Scanner24
 		}
 		Tech
 		{
@@ -2277,6 +2333,36 @@ GAME
 			sci = 30
 			cap = 36
 		}
+		Science
+		{
+			id = SCANsatBiomeAnomaly@KerbinInSpaceHighsurface
+			title = Multispectral Analysis of Kerbin
+			dsc = 3
+			scv = 1
+			sbv = 1.5
+			sci = 18.9864597
+			cap = 22.5
+		}
+		Science
+		{
+			id = SCANsatBiomeAnomaly@MinmusInSpaceHighsurface
+			title = Multispectral Analysis of Minmus
+			dsc = 3
+			scv = 0
+			sbv = 2.5
+			sci = 37.5
+			cap = 37.5
+		}
+		Science
+		{
+			id = SCANsatBiomeAnomaly@MunInSpaceHighsurface
+			title = Multispectral Analysis of the Mun
+			dsc = 3
+			scv = 0.0622880943
+			sbv = 2
+			sci = 28.1313572
+			cap = 30
+		}
 	}
 	SCENARIO
 	{
@@ -2517,686 +2603,340 @@ GAME
 		{
 		}
 	}
+	SCENARIO
+	{
+		name = SCANcontroller
+		scene = 7, 5, 8
+		colours = 0
+		map_markers = True
+		map_flags = True
+		map_waypoints = True
+		map_orbit = True
+		map_asteroids = True
+		map_grid = True
+		map_ResourceOverlay = True
+		projection = 0
+		map_width = 1764
+		map_x = 381
+		map_y = 239
+		anomalyMarker = X
+		legend = True
+		scan_background = True
+		timeWarpResolution = 15
+		resourceSelection = Ore
+		dataRebuild = False
+		mainMapVisible = False
+		bigMapVisible = False
+		kscMapVisible = False
+		toolTips = True
+		useStockAppLauncher = True
+		resourceBiomeLock = True
+		useStockBiomes = False
+		biomeTransparency = 40
+		mechJebTargetSelection = False
+		easyModeScanning = True
+		needsNarrowBand = True
+		biomeBorder = True
+		disableStockResource = False
+		hiDetailZoomMap = False
+		planetaryOverlayTooltips = True
+		overlayInterpolation = 8
+		overlayMapHeight = 256
+		overlayBiomeHeight = 512
+		overlayTransparency = 0
+		trueGreyScale = False
+		groundTracks = True
+		groundTrackActiveOnly = True
+		exportCSV = False
+		scanThreshold = 0.899999976
+		useScanThreshold = True
+		slopeCutoff = 1
+		windowScale = 1
+		lowBiomeColor = 0,0.460000008,0.02345098,1
+		highBiomeColor = 0.699999988,0.238823503,0,1
+		lowSlopeColorOne = 0.0047058831,0.600000024,0.378823489,1
+		highSlopeColorOne = 0.97647059,1,0.4627451,1
+		lowSlopeColorTwo = 0.97647059,1,0.4627451,1
+		highSlopeColorTwo = 0.939999998,0.272784293,0.0073725488,1
+		Scanners
+		{
+			Vessel
+			{
+				guid = b5353efd-919f-4893-927e-4a87d19fa865
+				name = MC Beethoven
+				Sensor
+				{
+					type = 8
+					fov = 4
+					min_alt = 5000
+					max_alt = 500000
+					best_alt = 250000
+				}
+				Sensor
+				{
+					type = 16
+					fov = 4
+					min_alt = 5000
+					max_alt = 500000
+					best_alt = 250000
+				}
+			}
+		}
+		Progress
+		{
+			Body
+			{
+				Name = Kerbin
+				Disabled = False
+				MinHeightRange = -1500
+				MaxHeightRange = 6500
+				ClampHeight = 0
+				PaletteName = Default
+				PaletteSize = 7
+				PaletteReverse = False
+				PaletteDiscrete = False
+				Map = CAABAAAA-----0AHQAAAD0AIBYD0AwACAOA+AAIYAADg-wPh-wfhRAfgZwDi-8-h-wfhQwfgawDgQ7-g-0vh-wfgawDh-3vh-wfhQwfgawDgQ7-g-0vh-wfgawDh-3vh-wfhQwfgawDgQ7-g-0vh-wfgawDh-3vh-wfhQwfgawDgQ7-g-0vh-wdBB+BnAEBz4P8D4f8H4UMH4GcA4EO74P9L4f8HQQfgZwBAc+D-A+H-B+FDB+BnAOBDu+D-S+H-B0EH4GcAQHPg-wPh-wfhQwfgZwDgQ7vg-0vh-wdBB+BnAEBz4P8D4f8H4UMH4GcA4EO74P9L4f8HQQfgZwBAc+D-A+H-B+FDB+BnAOBDu+D-S+H-B0EH4GcAQHPg-wPh-wfhQwfgZwDgQ7vg-0vh-wdBB+BjAEBv4P8D4f8H4UcH4GMA4Ee74P9P4f8HQQfgYwBAb+D-A+H-B+FHB+BjAOBHu+D-T+H-B0EH4GMAQG-g-wPh-wfhRwfgYwDgR7vg-0-h-wdBB+BjAEBv4P8D4f8H4UcH4GMA4Ee74P9P4f8HQQfgYwBAb+D-A+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BjAOBHu+D-T+H-B0EH4GMAQG-g-wPh-wfhRwfgYwDgR7vg-0-h-wdBB+BjAEBv4P8D4f8H4UcH4GMA4Ee74P9P4f8HQQfgYwBAb+D-A+H-B+FHB+BjAOBHu+D-T+H-B0EH4GMAQG-g-wPh-wfhRwfgYwDgR7vg-0-h-wdBB+BnAEBz4P8D4f8H4UMH4GcA4EO74P9L4f8H4GsA4f974f8H4UMH4GsA4EO-4P9L4f8H4GsA4f974f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4fsH4GsA4ft34f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GMA4Ee74P9P4f8HQQfgYwBAb+D-A+H-B+FDB+BnAOBDu+D-S+H-B0EH4GcAQHPg-wPh-wfhQwfgZwDgQ7vg-0vh-wdBB+BnAEBz4P8D4f8H4UcH4GMA4Ee74P9P4f8HQQfgYwBAb+D-A+H-B+FHB+BjAOBHu+D-T+H-B0EH4GMAQG-g-wPh-wfhRwfgYwDgR7vg-0-h-wdBB+BjAEBv4P8D4f8H4UcH4GMA4Ee74P9P4f8HQQfgZwBAc+D-A+H-B+FDB+BnAOBDu+D-S+H-B+BrAOH-e+H-B+FDB+BrAOBDv+D-S+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BrAOBHw+D-T+H7B+BrAOH7d+H-A+FHB+BrAOBHw+D-T+H7B+BrAOH7d+H-A+FHB+BrAOBHw+D-T+H7B+BrAOH7d+H-A+FHB+BrAOBHw+D-T+H7B+BrAOH7d+H-A+FHB+BrAOBHw+D-T+H7B+BrAOH7d+H-A+FHB+BrAOBHw+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FHB+BnAOBHv+D-T+H-B+BnAOH-d+H-B+FDB+BrAOBDv+D-S+H-B+BrAOH-e+H-B+FDB+BrAOBDv+D-S+H-B0EH4GcAQHPg-wPh-wfhQwfgZwDgQ7vg-0vh-wdBB+BnAEBz4P8D4f8H4UMH4GsA4EO-4P9L4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UMH4GsA4EO-4P9L4f8H4GsA4f974f8H4UMH4GsA4EO-4P9L4f8H4GsA4f974f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4fsH4GsA4ft34f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4U8H4GcA4E-H4P9X4fcH4GcA4fdv4P--4U8H4GcA4E-H4P9X4fcH4GcA4fdv4P--4U8H4GcA4E-H4P9X4fcH4GcA4fdv4P--4U8H4GcA4E-H4P9X4fcH4GcA4fdv4P--4U8H4GcA4E-H4P9X4fcH4GcA4fdv4P--4U8H4GcA4E-H4P9X4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GsA4EvH4P9T4fcH4GsA4fdz4P--4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GMA4f9z4f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4f8H4GcA4f934f8H4UsH4GMA4Eu-4P9T4f8H4GMA4f9z4f8H4UsH4GMA4Eu-4P9T4f8H4GMA4f9z4f8H4UsH4GMA4Eu-4P9T4f8H4GMA4f9z4f8H4UsH4GMA4Eu-4P9T4f8H4GcA4f934f8H4UcH4GcA4Ee-4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UcH4GsA4EfD4P9P4fsH4GsA4ft34f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4GcA4EvD4P9T4fsH4GcA4ftz4f8D4UsH4B4AAQAL
+			}
+			Body
+			{
+				Name = Minmus
+				Disabled = False
+				MinHeightRange = -500
+				MaxHeightRange = 5500
+				PaletteName = Paired
+				PaletteSize = 9
+				PaletteReverse = False
+				PaletteDiscrete = False
+				Map = CAABAAAA-----0AHQAAAD0AICID0AwACGAAAAOD-A+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+HKBwEACw__
+			}
+			Body
+			{
+				Name = Mun
+				Disabled = False
+				MinHeightRange = -500
+				MaxHeightRange = 7000
+				PaletteName = RdGy
+				PaletteSize = 11
+				PaletteReverse = True
+				PaletteDiscrete = False
+				Map = CAABAAAA-----0AHQAAAD0AICID0AwACGAAAAOD-A+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+H-B+HKBwEACw__
+			}
+		}
+		SCANResources
+		{
+			ResourceType
+			{
+				Resource = Ore
+				MinColor = 0.241454497,0.120727301,0.829999983,1
+				MaxColor = 0.788862824,0,0.939999998,1
+				Transparency = 20
+				MinMaxValues = 0|2.500|14.000,1|2.500|14.000,2|2.500|14.000,3|2.500|14.000,4|2.500|14.000,5|2.500|14.000,6|2.500|14.000,7|2.500|14.000,8|2.500|14.000,9|2.500|14.000,10|2.500|14.000,11|2.500|14.000,12|2.500|14.000,13|2.500|14.000,14|2.500|14.000,15|2.500|14.000,16|2.500|14.000
+			}
+			ResourceType
+			{
+				Resource = Karbonite
+				MinColor = 0,0.319215685,0.74000001,1
+				MaxColor = 0.75,0.382352889,0,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.800|2.200,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = Minerals
+				MinColor = 0.4762353,0.0432941206,0.920000017,1
+				MaxColor = 0,0.576470971,0.0745100006,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = Substrate
+				MinColor = 0.64188242,0.0138039198,0.879999995,1
+				MaxColor = 0.742823482,0.819999993,0,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = Uraninite
+				MinColor = 0,0.839215994,0.76078397,1
+				MaxColor = 1,0.235294104,0.0313725509,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = Water
+				MinColor = 0.75999999,0,0.572235286,1
+				MaxColor = 0,0.568784416,0.980000019,1
+				Transparency = 20
+				MinMaxValues = 0|0.500|6.500,1|5.000|45.000,2|0.500|6.500,3|0.500|6.500,4|0.500|6.500,5|0.500|6.500,6|0.500|6.500,7|0.500|6.500,8|0.500|6.500,9|5.000|40.000,10|0.500|6.500,11|0.500|6.500,12|0.500|6.500,13|0.500|6.500,14|0.500|6.500,15|0.500|6.500,16|0.500|6.500
+			}
+			ResourceType
+			{
+				Resource = MetallicOre
+				MinColor = 0.720000029,0.505411804,0,1
+				MaxColor = 0,0.630274475,0.980000019,1
+				Transparency = 20
+				MinMaxValues = 8|1.000|6.500,1|1.000|6.500,0|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = MetalOre
+				MinColor = 0.182784304,0.589999974,0,1
+				MaxColor = 0.0865882412,0.894745111,0.920000017,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|7.500,1|1.000|7.500,2|1.000|7.500,3|1.000|7.500,4|1.000|7.500,5|1.000|7.500,6|1.000|7.500,7|1.000|7.500,8|1.000|7.500,9|1.000|7.500,10|1.000|7.500,11|1.000|7.500,12|1.000|7.500,13|1.000|7.500,14|1.000|7.500,15|1.000|7.500,16|1.000|7.500
+			}
+			ResourceType
+			{
+				Resource = Dirt
+				MinColor = 1,0.2196078,0.772548974,1
+				MaxColor = 0.322196096,0.790000021,0,1
+				Transparency = 20
+				MinMaxValues = 0|15.000|35.000,1|15.000|35.000,2|15.000|35.000,3|15.000|35.000,4|15.000|35.000,5|15.000|35.000,6|15.000|35.000,7|15.000|35.000,8|15.000|35.000,9|15.000|35.000,10|15.000|35.000,11|15.000|35.000,12|15.000|35.000,13|15.000|35.000,14|15.000|35.000,15|15.000|35.000,16|15.000|35.000
+			}
+			ResourceType
+			{
+				Resource = ExoticMinerals
+				MinColor = 0.939568579,0.970000029,0,1
+				MaxColor = 0.467882395,0,0.970000029,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = Gypsum
+				MinColor = 0.779999971,0.2905882,0,1
+				MaxColor = 0,1,0.807843089,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = Hydrates
+				MinColor = 0.172117695,0.769999981,0.39858821,1
+				MaxColor = 0.930000007,0.452235311,0,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = RareMetals
+				MinColor = 0,0.49000001,0.351647109,1
+				MaxColor = 1,0,0.223529398,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|1.000|6.500,2|1.000|6.500,3|1.000|6.500,4|1.000|6.500,5|1.000|6.500,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|6.500,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|6.500
+			}
+			ResourceType
+			{
+				Resource = GeoEnergy
+				MinColor = 0,0.790000021,0.492588311,1
+				MaxColor = 1,0.725490212,0,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|6.500,1|10.000|35.000,2|1.000|35.000,3|1.000|6.500,4|1.000|6.500,5|1.000|35.000,6|1.000|6.500,7|1.000|6.500,8|1.000|6.500,9|1.000|35.000,10|1.000|6.500,11|1.000|6.500,12|1.000|6.500,13|1.000|6.500,14|1.000|6.500,15|1.000|6.500,16|1.000|35.000
+			}
+			ResourceType
+			{
+				Resource = Alumina
+				MinColor = 0.446470588,0,0.689999998,1
+				MaxColor = 0.0705882385,1,0,1
+				Transparency = 20
+				MinMaxValues = 0|0.700|10.000,1|0.700|14.000,2|2.500|35.000,3|0.700|10.000,4|2.500|35.000,5|0.700|10.000,6|5.000|55.000,7|0.700|10.000,8|0.700|10.000,9|0.700|10.000,10|0.700|10.000,11|0.700|10.000,12|0.700|10.000,13|0.700|10.000,14|0.700|10.000,15|0.700|90.000,16|0.700|10.000
+			}
+			ResourceType
+			{
+				Resource = Borate
+				MinColor = 0.0170588307,0.863176525,0.870000005,1
+				MaxColor = 1,0,0,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|7.500,1|1.000|7.500,2|1.000|7.500,3|1.000|7.500,4|1.000|7.500,5|1.000|7.500,6|1.000|7.500,7|1.000|7.500,8|1.000|7.500,9|1.000|7.500,10|1.000|7.500,11|1.000|7.500,12|1.000|7.500,13|1.000|7.500,14|1.000|7.500,15|1.000|7.500,16|1.000|7.500
+			}
+			ResourceType
+			{
+				Resource = Monazite
+				MinColor = 0.146117598,0.0432941206,0.689999998,1
+				MaxColor = 0,1,0.678431392,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|7.500,1|1.000|15.000,2|1.000|20.000,3|1.000|7.500,4|1.000|7.500,5|1.000|7.500,6|1.000|7.500,7|1.000|7.500,8|1.000|7.500,9|1.000|7.500,10|1.000|7.500,11|1.000|7.500,12|1.000|7.500,13|1.000|7.500,14|1.000|7.500,15|1.000|7.500,16|1.000|7.500
+			}
+			ResourceType
+			{
+				Resource = SaltWater
+				MinColor = 0,0.779999971,0.333411813,1
+				MaxColor = 0.388235301,0.921568573,1,1
+				Transparency = 20
+				MinMaxValues = 0|0.100|1.000,1|0.100|40.000,2|0.100|1.000,3|0.100|1.000,4|0.100|1.000,5|0.100|1.000,6|0.100|1.000,7|0.100|1.000,8|0.100|1.000,9|0.100|1.000,10|0.100|1.000,11|0.100|1.000,12|0.100|1.000,13|0.100|1.000,14|0.100|1.000,15|0.100|1.000,16|0.100|1.000
+			}
+			ResourceType
+			{
+				Resource = Silicates
+				MinColor = 0.769999981,0.721686184,0.262705892,1
+				MaxColor = 0.882352889,0.458823502,1,1
+				Transparency = 20
+				MinMaxValues = 0|1.000|7.500,1|1.000|7.500,2|1.000|7.500,3|1.000|7.500,4|1.000|7.500,5|1.000|7.500,6|1.000|7.500,7|1.000|7.500,8|1.000|7.500,9|1.000|7.500,10|1.000|7.500,11|1.000|7.500,12|1.000|7.500,13|1.000|7.500,14|1.000|7.500,15|1.000|7.500,16|1.000|7.500
+			}
+			ResourceType
+			{
+				Resource = SolarWind
+				MinColor = 0.129882395,0.350117713,0.720000029,1
+				MaxColor = 1,1,0,1
+				Transparency = 20
+				MinMaxValues = 0|0.100|1.000,1|0.100|1.000,2|0.100|1.000,3|0.100|1.000,4|0.500|10.000,5|0.100|1.000,6|0.100|1.000,7|0.100|1.000,8|0.100|1.000,9|0.100|1.000,10|0.100|1.000,11|0.100|1.000,12|0.100|1.000,13|0.100|1.000,14|0.100|1.000,15|0.100|1.000,16|0.100|1.000
+			}
+		}
+	}
+	SCENARIO
+	{
+		name = KerbalAlarmClockScenario
+		scene = 5, 6, 7, 8
+		KACAlarmListStorage
+		{
+			list
+			{
+				Item
+				{
+					VesselID = b5353efd-919f-4893-927e-4a87d19fa865
+					ID = a40020b2afab4eaf9778fd467f4aa4ae
+					Name = Warp to SOI
+					NotesStorage = 
+					TypeOfAlarm = SOIChange
+					AlarmTimeStorage = 3004621.3682269282
+					AlarmMarginSecs = 180
+					Enabled = True
+					AlarmAction = Converted
+					AlarmActionConverted = True
+					ManNodesStorage = 
+					XferOriginBodyName = 
+					XferTargetBodyName = 
+					RepeatAlarm = False
+					RepeatAlarmPeriodStorage = 0
+					PlaySound = False
+					TargetObjectStorage = 
+					ContractGUIDStorage = 00000000-0000-0000-0000-000000000000
+					ContractAlarmType = Expire
+					Triggered = True
+					Actioned = True
+					AlarmWindowClosed = True
+					Actions
+					{
+						Warp = KillWarp
+						Message = No
+						DeleteWhenDone = True
+						PlaySound = False
+					}
+				}
+			}
+		}
+	}
 	FLIGHTSTATE
 	{
 		version = 1.2.2
-		UT = 57676.602045633903
+		UT = 4663407.0547406906
 		activeVessel = 0
 		mapViewFiltering = -1026
 		commNetUIModeTracking = Network
 		commNetUIModeFlight = Path
-		VESSEL
-		{
-			pid = 77f16d7242604c6996d4a21274648322
-			name = Ast. HDN-219
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 90.099999999999213
-			lct = 90.099999999999213
-			lastUT = -1
-			root = 0
-			lat = -1.313926834544187
-			lon = 179.83342245456538
-			alt = 13511381169.659157
-			hgt = -1
-			nrm = 0,1,0
-			rot = 0.357495427,0.306598008,-0.671644926,0.571915925
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 13782474743.822033
-				ECC = 0.013916467634282028
-				INC = 1.3773604245420801
-				LPE = 340.50477107850861
-				LAN = 287.36805711850633
-				MNA = 0.33315357636780618
-				EPH = 2750574.3651367188
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 1482224184
-				mid = 1482224184
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 90.099999999999213
-				lifetime = 349721.31500244141
-				refTime = 1728000
-				size = 4
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = 5499c7c53c0d44ac9f7fd41f55260e16
-			name = Ast. XHN-496
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 135.13999999999533
-			lct = 135.13999999999533
-			lastUT = -1
-			root = 0
-			lat = -0.60054081863168962
-			lon = -171.54495226546968
-			alt = 15897475518.707981
-			hgt = -1
-			nrm = 0,1,0
-			rot = -0.449448586,0.478340536,0.592024386,0.467646748
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 15533508586.679356
-				ECC = 0.12486834299413918
-				INC = 0.60237334096699158
-				LPE = 21.001448306500329
-				LAN = 283.0381581786292
-				MNA = 0.14195727719526097
-				EPH = 3438450.0081640626
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 1091133477
-				mid = 1091133477
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 135.13999999999533
-				lifetime = 1693763.8549804688
-				refTime = 1728000
-				size = 2
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = a1ec2565ec114f729b7c34488f12d25a
-			name = Ast. IBI-625
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 173.86000000001513
-			lct = 173.86000000001513
-			lastUT = -1
-			root = 0
-			lat = -0.53564533486389621
-			lon = -176.50273254817057
-			alt = 14238785604.686108
-			hgt = -1
-			nrm = 0,1,0
-			rot = -0.198090836,-0.648566544,-0.719601929,0.14931336
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 14186880343.475901
-				ECC = 0.04021964895018653
-				INC = 0.63537188167408121
-				LPE = 2.6968250995554621
-				LAN = 306.18043479174526
-				MNA = 0.22929300277084605
-				EPH = 3664851.6920312499
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 48597314
-				mid = 48597314
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 173.86000000001513
-				lifetime = 968275.634765625
-				refTime = 1728000
-				size = 2
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = 9ebff0ffe44c45f0a3066999120b3767
-			name = Ast. PXJ-621
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 403.18133911126722
-			lct = 403.18133911126722
-			lastUT = -1
-			root = 0
-			lat = 0.093072025486893667
-			lon = -172.21194801139367
-			alt = 14457813121.288517
-			hgt = -1
-			nrm = 0,1,0
-			rot = 0.345825583,-0.5398615,-0.412415534,0.64719975
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 14119576431.144508
-				ECC = 0.043357742937144367
-				INC = 1.8787775058333316
-				LPE = 346.11537052691341
-				LAN = 10.962535771136857
-				MNA = 0.24027931609314049
-				EPH = 4915513.5695227049
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 97416696
-				mid = 97416696
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 403.18133911126722
-				lifetime = 101349.45373535156
-				refTime = 1728000
-				size = 3
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = 72743255783e46ef8a73c07ce8535e3c
-			name = Ast. FWW-102
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 452.13420776357481
-			lct = 452.13420776357481
-			lastUT = -1
-			root = 0
-			lat = 2.3450876299166699
-			lon = -175.44730125924218
-			alt = 14706774931.612787
-			hgt = -1
-			nrm = 0,1,0
-			rot = 0.144303471,0.749310017,-0.627279878,0.155663207
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 14629628946.811075
-				ECC = 0.069129224383558271
-				INC = 2.4327739798830192
-				LPE = 187.8362732614996
-				LAN = 110.36831229270922
-				MNA = -0.053923797787191356
-				EPH = 2931173.5941687012
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 966438535
-				mid = 966438535
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 452.13420776357481
-				lifetime = 832978.42712402344
-				refTime = 1728000
-				size = 0
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = 95eb91dc8ad1410c84965998c1b31a87
-			name = Ast. LXG-456
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 471.254207763571
-			lct = 471.254207763571
-			lastUT = -1
-			root = 0
-			lat = -2.3204007756775935
-			lon = -179.9398152162841
-			alt = 14247709834.432638
-			hgt = -1
-			nrm = 0,1,0
-			rot = 0.394345641,-0.213673517,0.800287604,0.397963494
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 14969339000.94808
-				ECC = 0.093183826213772386
-				INC = 2.5690786036865769
-				LPE = 11.280812690216029
-				LAN = 245.02040389274421
-				MNA = -0.16105519003713814
-				EPH = 1667783.5466882323
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 431223489
-				mid = 431223489
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 471.254207763571
-				lifetime = 471626.91650390625
-				refTime = 1728000
-				size = 3
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = 8fa8268b15ea4b1d9d3b93a018a786a4
-			name = Ast. AFD-038
-			type = SpaceObject
-			sit = ORBITING
-			landed = False
-			landedAt = 
-			splashed = False
-			met = 490.53420776356717
-			lct = 490.53420776356717
-			lastUT = -1
-			root = 0
-			lat = -0.27317878935186607
-			lon = -179.56978942370631
-			alt = 13800957692.550901
-			hgt = -1
-			nrm = 0,1,0
-			rot = -0.581522822,0.591125429,-0.385807812,0.404418319
-			CoM = 0,0,0
-			stg = 0
-			prst = False
-			ref = 0
-			ctrl = False
-			ORBIT
-			{
-				SMA = 13951226315.660728
-				ECC = 0.034529934409810503
-				INC = 0.27802435498923334
-				LPE = 4.5670262671513457
-				LAN = 281.55182777110099
-				MNA = -0.43182702898444708
-				EPH = 2037719.6357702636
-				REF = 0
-			}
-			PART
-			{
-				name = PotatoRoid
-				cid = 0
-				uid = 354061893
-				mid = 354061893
-				launchID = 0
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = 0
-				sidx = 0
-				attm = 0
-				srfN = None, -1
-				mass = 150
-				shielded = False
-				temp = -1
-				tempExt = 0
-				tempExtUnexp = 0
-				expt = 0.100000001
-				state = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = 
-				rTrf = 
-				modCost = 0
-			}
-			ACTIONGROUPS
-			{
-			}
-			DISCOVERY
-			{
-				state = 1
-				lastObservedTime = 490.53420776356717
-				lifetime = 1426842.8833007813
-				refTime = 1728000
-				size = 1
-			}
-			FLIGHTPLAN
-			{
-			}
-			CTRLSTATE
-			{
-			}
-			VESSELMODULES
-			{
-				ModularFlightIntegrator
-				{
-				}
-				BetterBurnTimeData
-				{
-				}
-			}
-		}
 		VESSEL
 		{
 			pid = f0d4da021feb4e73bb6e8447782c85a3
@@ -3892,6 +3632,9 @@ GAME
 				ModularFlightIntegrator
 				{
 				}
+				RPMVesselComputer
+				{
+				}
 				BetterBurnTimeData
 				{
 				}
@@ -4521,6 +4264,1633 @@ GAME
 				ModularFlightIntegrator
 				{
 				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = b5353efd919f4893927e4a87d19fa865
+			name = MC Beethoven
+			type = Probe
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 4605640.9326956859
+			lct = 57738.40204562401
+			lastUT = 4663379.3347413102
+			root = 0
+			lat = 37.39302723239809
+			lon = -105.98593065508362
+			alt = 233681.49683680327
+			hgt = -1
+			nrm = 0.584277749,0.205974817,0.784980178
+			rot = -0.703893363,0.323101431,0.448715001,0.445863843
+			CoM = 0,-0.11473842,-0.00206327438
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = True
+			cPch = 
+			cHdg = 
+			cMod = 0
+			ORBIT
+			{
+				SMA = 3179114.4186855229
+				ECC = 0.7567515927259596
+				INC = 89.604663391109867
+				LPE = 3.6889498273597288
+				LAN = 129.11058256061597
+				MNA = 0.056030169313264239
+				EPH = 4663379.3347413102
+				REF = 1
+			}
+			PART
+			{
+				name = probeCoreOcto
+				cid = 4294539330
+				uid = 2422098747
+				mid = 2533024855
+				launchID = 15
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 0
+				srfN = , -1
+				attN = bottom, 1
+				attN = top, 4
+				mass = 0.100000001
+				shielded = False
+				temp = 219.863838603576
+				tempExt = 220.59062736565787
+				tempExtUnexp = 4
+				expt = 0
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = probeCoreOcto (MC Beethoven)
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = ModuleCommand
+					isEnabled = True
+					hibernation = False
+					hibernateOnWarp = True
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						HibernateToggle
+						{
+							actionGroup = None
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleReactionWheel
+					isEnabled = True
+					actuatorModeCycle = 0
+					authorityLimiter = 100
+					stateString = Running
+					stagingEnabled = True
+					WheelState = Active
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						CycleAction
+						{
+							actionGroup = None
+						}
+						Activate
+						{
+							actionGroup = None
+						}
+						Deactivate
+						{
+							actionGroup = None
+						}
+						Toggle
+						{
+							actionGroup = None
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleSAS
+					isEnabled = True
+					standaloneToggle = True
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleKerbNetAccess
+					isEnabled = True
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						OpenKerbNetAction
+						{
+							actionGroup = None
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleDataTransmitter
+					isEnabled = True
+					xmitIncomplete = False
+					stagingEnabled = True
+					canComm = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+							active = False
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleCrewAssignment
+					isEnabled = True
+					slotAssignments = 
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = TrajectoriesVesselSettings
+					isEnabled = True
+					EntryAngle = 0
+					EntryHorizon = False
+					HighAngle = 0
+					HighHorizon = False
+					LowAngle = 0
+					LowHorizon = False
+					GroundAngle = 0
+					GroundHorizon = False
+					ProgradeEntry = False
+					RetrogradeEntry = False
+					hasTarget = False
+					targetLocation = (0, 0, 0)
+					targetReferenceBody = 
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleTripLogger
+					isEnabled = True
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+					}
+					Log
+					{
+						flight = 0
+						0 = Flight,Kerbin
+						0 = Suborbit,Kerbin
+						0 = Orbit,Kerbin
+						0 = Flyby,Minmus
+						0 = Escape,Minmus
+						0 = Orbit,Minmus
+						0 = Flyby,Kerbin
+						0 = Flyby,Mun
+						0 = Escape,Mun
+						0 = Orbit,Mun
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				RESOURCE
+				{
+					name = ElectricCharge
+					amount = 9.2226776035026194
+					maxAmount = 10
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+			}
+			PART
+			{
+				name = miniFuelTank
+				cid = 4294488370
+				uid = 3363303389
+				mid = 2533024855
+				launchID = 15
+				parent = 0
+				position = 0,-0.36135482788085938,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 0
+				srfN = srfAttach, -1
+				attN = top, 0
+				attN = bottom, 2
+				mass = 0.0250000004
+				shielded = False
+				temp = 220.21748643268458
+				tempExt = 220.52204595197335
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = miniFuelTank
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				RESOURCE
+				{
+					name = LiquidFuel
+					amount = 0
+					maxAmount = 18
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+				RESOURCE
+				{
+					name = Oxidizer
+					amount = 0
+					maxAmount = 22
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+			}
+			PART
+			{
+				name = miniFuelTank
+				cid = 4294451720
+				uid = 3729124464
+				mid = 2533024855
+				launchID = 15
+				parent = 1
+				position = 0,-0.70990180969238281,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 0
+				srfN = srfAttach, -1
+				attN = top, 1
+				attN = bottom, 3
+				mass = 0.0250000004
+				shielded = False
+				temp = 220.21997140727214
+				tempExt = 220.6123484118481
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Heaviest
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = miniFuelTank
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				RESOURCE
+				{
+					name = LiquidFuel
+					amount = 0
+					maxAmount = 18
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+				RESOURCE
+				{
+					name = Oxidizer
+					amount = 0
+					maxAmount = 22
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+			}
+			PART
+			{
+				name = microEngine
+				cid = 4294458006
+				uid = 3855286240
+				mid = 2533024855
+				launchID = 15
+				parent = 2
+				position = 0,-0.88417434692382813,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = -1
+				sidx = 0
+				attm = 0
+				srfN = , -1
+				attN = top, 2
+				attN = bottom, -1
+				mass = 0.0199999996
+				shielded = False
+				temp = 220.15720306977755
+				tempExt = 220.45322412927834
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 1
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = microEngine
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = ModuleEnginesFX
+					isEnabled = True
+					staged = True
+					flameout = True
+					EngineIgnited = True
+					engineShutdown = False
+					currentThrottle = 0
+					thrustPercentage = 100
+					manuallyOverridden = False
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						OnAction
+						{
+							actionGroup = None
+						}
+						ShutdownAction
+						{
+							actionGroup = None
+						}
+						ActivateAction
+						{
+							actionGroup = None
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleTestSubject
+					isEnabled = True
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+			}
+			PART
+			{
+				name = batteryBankMini
+				cid = 4294424632
+				uid = 3687274024
+				mid = 2533024855
+				launchID = 15
+				parent = 0
+				position = 0,0.28708267211914063,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 0
+				srfN = srfAttach, -1
+				attN = top, -1
+				attN = bottom, 0
+				mass = 0.00999999978
+				shielded = False
+				temp = 219.43966947328892
+				tempExt = 219.4887482470503
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = batteryBankMini
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				RESOURCE
+				{
+					name = ElectricCharge
+					amount = 184.45355207005016
+					maxAmount = 200
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+			}
+			PART
+			{
+				name = SCANsat.Scanner24
+				cid = 4294436654
+				uid = 3939342572
+				mid = 2533024855
+				launchID = 15
+				parent = 4
+				position = 0,0.40333175659179688,-0.01788175106048584
+				rotation = -2.52881108E-07,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 1
+				srfN = srfAttach, 4
+				mass = 0.0299999993
+				shielded = False
+				temp = 219.4300313183258
+				tempExt = 219.8267433769218
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = SCANsat.Scanner24
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = SCANsat
+					isEnabled = True
+					scanning = True
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						startScanAction
+						{
+							actionGroup = None
+						}
+						stopScanAction
+						{
+							actionGroup = None
+						}
+						toggleScanAction
+						{
+							actionGroup = None
+						}
+						analyzeData
+						{
+							actionGroup = None
+							active = False
+						}
+					}
+					ScienceData
+					{
+						data = 2.99999992E-05
+						subjectID = SCANsatBiomeAnomaly@KerbinInSpaceHighsurface
+						xmit = 1
+						xmitBonus = 1
+						title = Multispectral Analysis of Kerbin
+						triggered = False
+						container = 3939342572
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+			}
+			PART
+			{
+				name = solarPanels4
+				cid = 4294404108
+				uid = 526509291
+				mid = 2533024855
+				launchID = 15
+				parent = 0
+				position = 0,-0.0096530914306640625,0.34336167573928833
+				rotation = 0,0.707106769,0,0.707106888
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 1
+				sym = 7
+				srfN = srfAttach, 0
+				mass = 0.0175000001
+				shielded = False
+				temp = 220.97701894339272
+				tempExt = 221.91048627722634
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = solarPanels4
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = ModuleDeployableSolarPanel
+					isEnabled = True
+					efficiencyMult = 1
+					launchUT = 57738.40204562401
+					currentRotation = (0.0871928111, 0.0864939839, -0.70266825, 0.700837731)
+					storedAnimationTime = 0
+					storedAnimationSpeed = 0
+					deployState = EXTENDED
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ExtendAction
+						{
+							actionGroup = None
+						}
+						RetractAction
+						{
+							actionGroup = None
+							active = False
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+			}
+			PART
+			{
+				name = solarPanels4
+				cid = 4294395362
+				uid = 3807450564
+				mid = 2533024855
+				launchID = 15
+				parent = 0
+				position = -1.1920928955078125E-07,-0.0096530914306640625,-0.34336167573928833
+				rotation = 0,0.707106829,0,-0.707106829
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 1
+				sym = 6
+				srfN = srfAttach, 0
+				mass = 0.0175000001
+				shielded = False
+				temp = 221.53184409863695
+				tempExt = 222.17682541448099
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = solarPanels4
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = ModuleDeployableSolarPanel
+					isEnabled = True
+					efficiencyMult = 1
+					launchUT = 57738.40204562401
+					currentRotation = (-0.701604426, -0.701894224, 0.086628519, -0.0871279463)
+					storedAnimationTime = 0
+					storedAnimationSpeed = 0
+					deployState = EXTENDED
+					stagingEnabled = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ExtendAction
+						{
+							actionGroup = None
+						}
+						RetractAction
+						{
+							actionGroup = None
+							active = False
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+			}
+			PART
+			{
+				name = SurfAntenna
+				cid = 4293387486
+				uid = 843139798
+				mid = 2533024855
+				launchID = 15
+				parent = 0
+				position = -0.39337503910064697,0.0082073211669921875,0
+				rotation = 0.49999997,-0.50000006,0.50000006,0.49999997
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = -1
+				resPri = 0
+				dstg = 0
+				sqor = -1
+				sepI = -1
+				sidx = -1
+				attm = 1
+				srfN = srfAttach, 0
+				mass = 0.0149999997
+				shielded = False
+				temp = 219.7916152040525
+				tempExt = 220.25779787979519
+				tempExtUnexp = 4
+				expt = 0.5
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = Squad/Flags/esa_dark_blue
+				rTrf = SurfAntenna
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = ModuleDataTransmitter
+					isEnabled = True
+					xmitIncomplete = True
+					stagingEnabled = True
+					canComm = True
+					EVENTS
+					{
+					}
+					ACTIONS
+					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+						}
+					}
+					UPGRADESAPPLIED
+					{
+					}
+				}
+			}
+			ACTIONGROUPS
+			{
+				Stage = True, 58253.3190836792
+				Gear = False, 0
+				Light = False, 0
+				RCS = False, 0
+				SAS = True, 57736.6620456243
+				Brakes = False, 0
+				Abort = False, 0
+				Custom01 = False, 0
+				Custom02 = False, 0
+				Custom03 = False, 0
+				Custom04 = False, 0
+				Custom05 = False, 0
+				Custom06 = False, 0
+				Custom07 = False, 0
+				Custom08 = False, 0
+				Custom09 = False, 0
+				Custom10 = False, 0
+			}
+			DISCOVERY
+			{
+				state = -1
+				lastObservedTime = 0
+				lifetime = Infinity
+				refTime = Infinity
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+				pitch = -6.241144E-05
+				yaw = -2.43472914E-06
+				roll = -4.33346543E-07
+				trimPitch = 0
+				trimYaw = 0
+				trimRoll = 0
+				mainThrottle = 0
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				CommNetVessel
+				{
+					controlState = ProbeFull
+					canComm = True
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = 2831544f68fa4e3887b615ceea520146
+			name = Ast. QUU-067
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 3242592.6178973606
+			lct = 3242592.6178973606
+			lastUT = -1
+			root = 0
+			lat = -0.037836179541949823
+			lon = 137.71927619337157
+			alt = 14625066362.172405
+			hgt = -1
+			nrm = 0,1,0
+			rot = 0.601473629,-0.545837224,0.533415735,0.236133143
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 14229507894.378429
+				ECC = 0.046192530279545049
+				INC = 0.075594635563085114
+				LPE = 151.08909364017327
+				LAN = 349.91379385393202
+				MNA = -0.28530206985743611
+				EPH = 7754032.5715106418
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 1186702093
+				mid = 1186702093
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 3242592.6178973606
+				lifetime = 1590846.1303710938
+				refTime = 1728000
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = 1bdc8ad56b9749f099f5374b4d517eed
+			name = Ast. VXS-435
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 3543937.2469551167
+			lct = 3543937.2469551167
+			lastUT = -1
+			root = 0
+			lat = -0.49062416569706674
+			lon = -115.70966151974653
+			alt = 13633950995.999577
+			hgt = -1
+			nrm = 0,1,0
+			rot = 0.539490819,0.716080785,0.115156099,0.427688032
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 13851374883.426828
+				ECC = 0.025370526145034596
+				INC = 0.96488238475988752
+				LPE = 309.22550842923266
+				LAN = 107.0110597815484
+				MNA = 0.88097452310867741
+				EPH = 7387235.3060371485
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 1086690459
+				mid = 1086690459
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 3543937.2469551167
+				lifetime = 1437675.5126953125
+				refTime = 1728000
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = 0a5f2c5b076f44a48971e39d8ccc21b2
+			name = Ast. CTP-175
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 3905303.8621894917
+			lct = 3905303.8621894917
+			lastUT = -1
+			root = 0
+			lat = -0.24590239055091473
+			lon = -42.311249094845927
+			alt = 13642966667.549562
+			hgt = -1
+			nrm = 0,1,0
+			rot = 0.49382183,0.296626687,0.119176745,0.808671474
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 14187814325.415344
+				ECC = 0.043323679242528029
+				INC = 0.25705324054692219
+				LPE = 351.7243222781803
+				LAN = 45.170507793862214
+				MNA = 0.1889979413272877
+				EPH = 5844495.1463691797
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 1805258739
+				mid = 1805258739
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 3905303.8621894917
+				lifetime = 819802.99072265625
+				refTime = 1728000
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = a26bfc431b0c4f738c643fbbb17f6e80
+			name = Ast. WJN-070
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 3967402.448615273
+			lct = 3967402.448615273
+			lastUT = -1
+			root = 0
+			lat = -2.591381184918343
+			lon = -86.981440160612195
+			alt = 15326092816.210608
+			hgt = -1
+			nrm = 0,1,0
+			rot = -0.320821851,0.0624852292,-0.428098649,0.84255594
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 15503703371.566866
+				ECC = 0.12742864335486676
+				INC = 2.6365175699625079
+				LPE = 359.11772483101311
+				LAN = 79.811727019600994
+				MNA = 0.003156025450753561
+				EPH = 6622438.8133613672
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 605584304
+				mid = 605584304
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 3967402.448615273
+				lifetime = 1005408.544921875
+				refTime = 1728000
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = 30dba7fb48214b8496c675bdb0629d39
+			name = Ast. JPY-767
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 4190484.6742012105
+			lct = 4190484.6742012105
+			lastUT = -1
+			root = 0
+			lat = 0.17215323455217102
+			lon = 100.34096388600136
+			alt = 14769377056.256712
+			hgt = -1
+			nrm = 0,1,0
+			rot = -0.488049924,-0.491486132,0.404967219,0.596867025
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 14306199247.152143
+				ECC = 0.055832489216197517
+				INC = 0.86255279497831161
+				LPE = 324.94608575500814
+				LAN = 183.92341426211141
+				MNA = 0.46357107038612877
+				EPH = 9165406.060919961
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 1545148125
+				mid = 1545148125
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 4190484.6742012105
+				lifetime = 1469213.96484375
+				refTime = 1728000
+				size = 0
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = 9a67e0407f1b4913b29d1580d144a484
+			name = Ast. NES-301
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 4265694.191779336
+			lct = 4265694.191779336
+			lastUT = -1
+			root = 0
+			lat = -0.31161730098984619
+			lon = 34.538707124818288
+			alt = 14528774904.571802
+			hgt = -1
+			nrm = 0,1,0
+			rot = -0.455866814,-0.864253104,0.119074389,0.176276535
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 14282836341.530544
+				ECC = 0.060223606413208099
+				INC = 1.4201286695050674
+				LPE = 321.57636707797371
+				LAN = 156.61088591368434
+				MNA = 0.52595844547984894
+				EPH = 8489555.8006660547
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 1152887325
+				mid = 1152887325
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 4265694.191779336
+				lifetime = 1597917.48046875
+				refTime = 1728000
+				size = 0
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
+				BetterBurnTimeData
+				{
+				}
+			}
+		}
+		VESSEL
+		{
+			pid = 422f9663123a405a9445d2cf1e4ad863
+			name = Ast. TMD-198
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 4530947.8353340235
+			lct = 4530947.8353340235
+			lastUT = -1
+			root = 0
+			lat = 0.83090968292626344
+			lon = -176.00418656027324
+			alt = 14093231909.269798
+			hgt = -1
+			nrm = 0,1,0
+			rot = -0.814736605,-0.350718886,0.461620361,0.0103522018
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 14144457137.787102
+				ECC = 0.038076282867832129
+				INC = 0.94733988476817532
+				LPE = 176.28229409492937
+				LAN = 298.4936514917606
+				MNA = 0.055045665863279164
+				EPH = 7625970.4915840235
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 674019478
+				mid = 674019478
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				resPri = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				shielded = False
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.100000001
+				state = 0
+				attached = True
+				autostrutMode = Off
+				rigidAttachment = False
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 4530947.8353340235
+				lifetime = 1375504.4036865234
+				refTime = 1728000
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+			VESSELMODULES
+			{
+				ModularFlightIntegrator
+				{
+				}
+				RPMVesselComputer
+				{
+				}
 				BetterBurnTimeData
 				{
 				}
@@ -4547,7 +5917,7 @@ GAME
 		Utils v1.5.6131.22337 / v1.0.0.0 = True
 		_BuildManager v1.5.6131.22338 / v1.0.0.0 = True
 		MiniAVC v1.0.3.2 = True
-		EVAEnhancementsContinued v1.1.1.0 = True
+		EVAEnhancementsContinued v1.1.1.0 = False
 		KerbalEngineer v1.1.2.8 = True
 		KerbalEngineer.Unity v1.0.0.0 = True
 		HyperEdit v1.5.3.0 = True
@@ -4597,6 +5967,19 @@ GAME
 		AirplanePlus = True
 		Firespitter = True
 		KSC = True
+		ContractConfigurator v1.0.0.0 / v1.22.2 = True
+		RasterPropMonitor v0.28.0.18220 = True
+		SCANsat v1.6.0.11 / vv16.11 = True
+		ContractConfigurator = True
+		JSI = True
+		SCANsat = True
+		UnmannedContracts v1.0.5980.31793 = True
+		EVAEnhancementsContinued v0.1.4.0 / v1.1.1.0 = True
+		KerbalAlarmClock v3.8.4.0 = True
+		CoherentContracts = True
+		ContractPacks = True
+		spacetux = True
+		TriggerTech = True
 	}
 	ROSTER
 	{
