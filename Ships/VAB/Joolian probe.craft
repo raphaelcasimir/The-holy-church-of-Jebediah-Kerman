@@ -2,7 +2,7 @@ ship = Joolian probe
 version = 1.2.2
 description = 
 type = VAB
-size = 2.34855509,5.72003555,2.10229325
+size = 2.23462343,5.40917969,1.89862943
 PART
 {
 	part = probeCoreOcto2_4294528398
@@ -918,6 +918,7 @@ PART
 	link = SCANsat.Scanner24_4294047526
 	link = HighGainAntenna_4294047408
 	link = sensorAtmosphere_4294047244
+	link = SCANsat.Scanner2_4293384006
 	attN = top,SurveyScanner_4294047678
 	attN = bottom,batteryBankMini_4294426056
 	EVENTS
@@ -2153,9 +2154,9 @@ PART
 		name = ModuleWheelDeployment
 		isEnabled = True
 		shieldedCanDeploy = False
-		stateString = Deployed
+		stateString = Retracted
 		stagingEnabled = True
-		position = 1
+		position = 0
 		EVENTS
 		{
 		}
@@ -2301,9 +2302,9 @@ PART
 		name = ModuleWheelDeployment
 		isEnabled = True
 		shieldedCanDeploy = False
-		stateString = Deployed
+		stateString = Retracted
 		stagingEnabled = True
-		position = 1
+		position = 0
 		EVENTS
 		{
 		}
@@ -2449,9 +2450,9 @@ PART
 		name = ModuleWheelDeployment
 		isEnabled = True
 		shieldedCanDeploy = False
-		stateString = Deployed
+		stateString = Retracted
 		stagingEnabled = True
-		position = 1
+		position = 0
 		EVENTS
 		{
 		}
@@ -2597,9 +2598,9 @@ PART
 		name = ModuleWheelDeployment
 		isEnabled = True
 		shieldedCanDeploy = False
-		stateString = Deployed
+		stateString = Retracted
 		stagingEnabled = True
-		position = 1
+		position = 0
 		EVENTS
 		{
 		}
@@ -2710,7 +2711,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -2785,7 +2786,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -2860,7 +2861,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -2935,7 +2936,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -3010,7 +3011,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -3085,7 +3086,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -3160,7 +3161,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -3235,7 +3236,7 @@ PART
 		launchUT = -1
 		currentRotation = (-0.707106829, 0, 0, 0.707106829)
 		storedAnimationTime = 0
-		storedAnimationSpeed = -10
+		storedAnimationSpeed = 1
 		deployState = RETRACTED
 		stagingEnabled = True
 		EVENTS
@@ -3254,6 +3255,74 @@ PART
 			RetractAction
 			{
 				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = SCANsat.Scanner2_4293384006
+	partName = Part
+	pos = 5.41482876E-08,15.8116407,-0.619384229
+	attPos = 0,0,0
+	attPos0 = 5.41482876E-08,0.0380783081,-0.619384229
+	rot = 0,1,0,0
+	attRot = 0,0,0,1
+	attRot0 = 0,1,0,0
+	mir = 1,1,1
+	symMethod = Radial
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,science.module_4294047924
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = SCANsat
+		isEnabled = True
+		scanning = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			startScanAction
+			{
+				actionGroup = None
+			}
+			stopScanAction
+			{
+				actionGroup = None
+			}
+			toggleScanAction
+			{
+				actionGroup = None
+			}
+			analyzeData
+			{
+				actionGroup = None
+				active = False
 			}
 		}
 		UPGRADESAPPLIED

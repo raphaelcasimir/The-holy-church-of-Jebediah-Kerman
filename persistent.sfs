@@ -152,18 +152,6 @@ GAME
 			PartUpgradesInSandbox = False
 			PartUpgradesInCareer = True
 		}
-		FMRS_Settings
-		{
-			enabled = True
-			autoactiveAtLaunch = True
-			Timer_Stage_Delay = 0.2
-			_SETTING_Messages = True
-			_SETTING_Auto_Cut_Off = True
-			_SETTING_Auto_Recover = True
-			_SETTING_Throttle_Log = True
-			_SETTING_Parachutes = True
-			_SETTING_Defer_Parachutes_to_StageRecovery = True
-		}
 	}
 	SCENARIO
 	{
@@ -827,8 +815,6 @@ GAME
 			part = stackDecoupler
 			part = longAntenna
 			part = sensorThermometer
-			part = KIS.guide
-			part = KIS.wrench
 		}
 		Tech
 		{
@@ -933,8 +919,6 @@ GAME
 			part = mk1dronedoor
 			part = passengeroor
 			part = Mk1JuniorStructural
-			part = KIS.Container1
-			part = KIS.ContainerMount1
 		}
 		Tech
 		{
@@ -944,7 +928,6 @@ GAME
 			part = sasModule
 			part = winglet3
 			part = R8winglet
-			part = mumech.MJ2.AR202
 		}
 		Tech
 		{
@@ -987,8 +970,6 @@ GAME
 			part = rocketNoseCone
 			part = fairingSize1
 			part = pointyNoseConeA
-			part = KAS.Winch1
-			part = kis.concreteBase1
 		}
 		Tech
 		{
@@ -1027,7 +1008,6 @@ GAME
 			part = fatwing5
 			part = fatwing6
 			part = mk1intake
-			part = noseconemk1
 		}
 		Tech
 		{
@@ -1050,7 +1030,6 @@ GAME
 			part = radialRCSTank
 			part = landerCabinSmall
 			part = advSasModule
-			part = mumech.MJ2.AR202.features1
 		}
 		Tech
 		{
@@ -1103,9 +1082,6 @@ GAME
 			part = trussAdapter
 			part = fairingSize2
 			part = pointyNoseConeB
-			part = KAS.Pylon1
-			part = KAS.Strut1
-			part = KIS.Container3
 		}
 		Tech
 		{
@@ -1116,7 +1092,6 @@ GAME
 			part = telescopicLadder
 			part = Large.Crewed.Lab
 			part = SCANsat.Scanner24
-			part = KIS.evapropellant
 		}
 		Tech
 		{
@@ -1130,7 +1105,6 @@ GAME
 			part = solarPanels1
 			part = solarPanels4
 			part = solarPanels2
-			part = KIS.electricScrewdriver
 		}
 		Tech
 		{
@@ -1162,7 +1136,6 @@ GAME
 			part = fuelTank3-2
 			part = adapterSize2-Size1Slant
 			part = adapterSize2-Size1
-			part = KAS.CPort1
 		}
 		Tech
 		{
@@ -1198,8 +1171,6 @@ GAME
 			part = falconcockpit
 			part = concordecockpit
 			part = airbuscockpit
-			part = f5jet
-			part = raptorjet
 		}
 		Tech
 		{
@@ -1256,7 +1227,6 @@ GAME
 			part = vernierEngine
 			part = asasmodule1-2
 			part = avionicsNoseCone
-			part = KAS.Hook.Anchor
 		}
 		Tech
 		{
@@ -1280,7 +1250,6 @@ GAME
 			part = strutCube
 			part = structuralMiniNode
 			part = probeCoreHex
-			part = KIS.bomb1
 		}
 		Tech
 		{
@@ -1305,7 +1274,6 @@ GAME
 			cost = 300
 			part = probeCoreOcto2
 			part = probeCoreCube
-			part = mumech.MJ2.AR202.features3
 		}
 		Tech
 		{
@@ -1338,7 +1306,6 @@ GAME
 			part = structuralIBeam3
 			part = structuralIBeam2
 			part = fairingSize3
-			part = KAS.Hook.Harpoon
 		}
 		Tech
 		{
@@ -1349,7 +1316,6 @@ GAME
 			part = size3Decoupler
 			part = Size3SmallTank
 			part = Size3MediumTank
-			part = KIS.Container2
 		}
 		Tech
 		{
@@ -1360,7 +1326,6 @@ GAME
 			part = dockingPort1
 			part = stackSeparatorBig
 			part = trussPiece3x
-			part = KAS.Winch2
 		}
 		Tech
 		{
@@ -1388,7 +1353,6 @@ GAME
 			part = bellprop
 			part = KP12
 			part = herculesprop
-			part = 609prop
 		}
 		Tech
 		{
@@ -1412,7 +1376,6 @@ GAME
 			part = spoilerflap
 			part = doublefowlerflap
 			part = bigwing
-			part = mk3galaxy
 		}
 		Tech
 		{
@@ -1432,7 +1395,6 @@ GAME
 			part = roverBody
 			part = seatExternalCmd
 			part = SCANsat.Scanner32
-			part = mumech.MJ2.AR202.features2
 		}
 		Tech
 		{
@@ -1457,7 +1419,6 @@ GAME
 			part = commDish
 			part = mk2DroneCore
 			part = mk1DroneCore
-			part = mumech.MJ2.Pod
 		}
 		Tech
 		{
@@ -1485,7 +1446,6 @@ GAME
 			part = adapterLargeSmallTri
 			part = adapterLargeSmallQuad
 			part = adapterLargeSmallBi
-			part = KAS.Hook.GrapplingHook
 		}
 		Science
 		{
@@ -5764,7 +5724,7 @@ GAME
 	FLIGHTSTATE
 	{
 		version = 1.2.2
-		UT = 51635897.447126366
+		UT = 51635903.427127346
 		activeVessel = 6
 		mapViewFiltering = -1026
 		commNetUIModeTracking = Network
@@ -8066,11 +8026,11 @@ GAME
 			{
 				SMA = NaN
 				ECC = 1
-				INC = 20.358637028896801
-				LPE = 90
-				LAN = 224.49493687870677
+				INC = 20.358637029201237
+				LPE = 90.000000000000014
+				LAN = 226.04650148920783
 				MNA = 0
-				EPH = 51635720.747097403
+				EPH = 51635894.867125943
 				REF = 3
 			}
 			PART
@@ -8223,13 +8183,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = 30000.060837598146
-				ECC = 0.99999999999999989
-				INC = 9.3779431168044471
+				SMA = 0
+				ECC = 1
+				INC = 9.3779431170106076
 				LPE = 270
-				LAN = 17.781137379226777
-				MNA = 3.1415926207170166
-				EPH = 51635720.747097403
+				LAN = 19.33270198910617
+				MNA = 0
+				EPH = 51635894.867125943
 				REF = 3
 			}
 			PART
@@ -8424,13 +8384,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = 30000.002333345376
-				ECC = 0.99999999999999989
-				INC = 9.3759714201019886
+				SMA = NaN
+				ECC = 1
+				INC = 9.3759714197640811
 				LPE = 270
-				LAN = 17.790183536843585
-				MNA = 3.1415926207170166
-				EPH = 51635720.747097403
+				LAN = 19.341748147120597
+				MNA = 0
+				EPH = 51635894.867125943
 				REF = 3
 			}
 			PART
@@ -8615,33 +8575,33 @@ GAME
 			landed = False
 			landedAt = 
 			splashed = False
-			met = 43301644.041861303
+			met = 43301650.021862283
 			lct = 8334253.405265063
-			lastUT = 51635897.447126366
+			lastUT = 51635903.427127346
 			root = 0
-			lat = 1.5078922406422364
-			lon = -142.36784099931333
-			alt = 5267099.6840758063
+			lat = 1.5155361321884595
+			lon = -142.38811439230994
+			alt = 5267100.7392810993
 			hgt = -1
-			nrm = 0.940807223,-0.217927381,-0.259595454
-			rot = -0.140178397,-0.878266811,0.080809623,-0.449963748
-			CoM = 1.19954348E-06,-0.518051505,-0.000562474132
+			nrm = 0.940892518,-0.217753217,-0.259431303
+			rot = -0.140154243,-0.878394723,0.0808498934,-0.449714243
+			CoM = 3.98606062E-07,-0.518051744,-0.000561989844
 			stg = 0
 			prst = False
 			ref = 0
 			ctrl = True
-			cPch = 0.2119997
-			cHdg = -4.466002
+			cPch = 0.9859999
+			cHdg = -0.8039998
 			cMod = 0
 			ORBIT
 			{
-				SMA = 5996884.8993845759
-				ECC = 0.068336737772442646
-				INC = 31.317118268319444
-				LPE = 2.2597510629870885
-				LAN = 348.14428324894669
-				MNA = 0.0097517097574053389
-				EPH = 51635897.447126366
+				SMA = 5996884.9320158744
+				ECC = 0.068336740381409869
+				INC = 31.317118250301565
+				LPE = 2.2597585218843261
+				LAN = 348.14428394666629
+				MNA = 0.0099751203220666274
+				EPH = 51635903.427127346
 				REF = 6
 			}
 			PART
@@ -8668,8 +8628,8 @@ GAME
 				attN = top, 17
 				mass = 0.100000001
 				shielded = False
-				temp = 165.52630975020841
-				tempExt = 164.95722653237976
+				temp = 165.53447886080872
+				tempExt = 164.98013028916805
 				tempExtUnexp = 4
 				expt = 0
 				state = 0
@@ -8819,23 +8779,6 @@ GAME
 				}
 				MODULE
 				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
 					name = TrajectoriesVesselSettings
 					isEnabled = True
 					EntryAngle = 0
@@ -8857,472 +8800,6 @@ GAME
 					}
 					ACTIONS
 					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = MechJebCore
-					isEnabled = True
-					running = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						OnOrbitProgradeAction
-						{
-							actionGroup = None
-						}
-						OnOrbitRetrogradeAction
-						{
-							actionGroup = None
-						}
-						OnOrbitNormalAction
-						{
-							actionGroup = None
-						}
-						OnOrbitAntinormalAction
-						{
-							actionGroup = None
-						}
-						OnOrbitRadialInAction
-						{
-							actionGroup = None
-						}
-						OnOrbitRadialOutAction
-						{
-							actionGroup = None
-						}
-						OnKillRotationAction
-						{
-							actionGroup = None
-						}
-						OnDeactivateSmartASSAction
-						{
-							actionGroup = None
-						}
-						OnPanicAction
-						{
-							actionGroup = None
-						}
-						OnTranslatronOffAction
-						{
-							actionGroup = None
-						}
-						OnTranslatronKeepVertAction
-						{
-							actionGroup = None
-						}
-						OnTranslatronZeroSpeedAction
-						{
-							actionGroup = None
-						}
-						OnTranslatronPlusOneSpeedAction
-						{
-							actionGroup = None
-						}
-						OnTranslatronMinusOneSpeedAction
-						{
-							actionGroup = None
-						}
-						OnTranslatronToggleHSAction
-						{
-							actionGroup = None
-						}
-					}
-					MechJebLocalSettings
-					{
-						MechJebModuleMenu
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleAscentAutopilot
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleAscentGuidance
-						{
-							unlockParts = 
-							unlockTechs = unmannedTech
-						}
-						MechJebModuleAscentNavBall
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleAscentPathEditor
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleAttitudeAdjustment
-						{
-							unlockParts = 
-							unlockTechs = advFlightControl
-						}
-						MechJebModuleCustomWindowEditor
-						{
-							unlockParts = 
-							unlockTechs = flightControl
-						}
-						MechJebModuleDebugArrows
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleDockingAutopilot
-						{
-							forceRol = False
-							overrideSafeDistance = False
-							overrideTargetSize = False
-							unlockParts = 
-							unlockTechs = 
-							rol
-							{
-								_val = 0
-								_text = 0
-							}
-						}
-						MechJebModuleDockingGuidance
-						{
-							unlockParts = 
-							unlockTechs = advUnmanned
-						}
-						MechJebModuleInfoItems
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleLandingAutopilot
-						{
-							deployGears = True
-							deployChutes = True
-							rcsAdjustment = True
-							unlockParts = 
-							unlockTechs = 
-							touchdownSpeed
-							{
-								_val = 0.5
-								_text = 0.5
-							}
-							limitGearsStage
-							{
-								val = 0
-								_text = 0
-							}
-							limitChutesStage
-							{
-								val = 0
-								_text = 0
-							}
-						}
-						MechJebModuleLandingGuidance
-						{
-							landingSiteIdx = 0
-							unlockParts = 
-							unlockTechs = unmannedTech
-						}
-						MechJebModuleLandingPredictions
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleManeuverPlanner
-						{
-							unlockParts = 
-							unlockTechs = advFlightControl
-						}
-						MechJebModuleNodeEditor
-						{
-							unlockParts = 
-							unlockTechs = advFlightControl
-						}
-						MechJebModuleNodeExecutor
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleRCSBalancerWindow
-						{
-							unlockParts = 
-							unlockTechs = advFlightControl
-						}
-						MechJebModuleRendezvousAutopilot
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleRendezvousAutopilotWindow
-						{
-							unlockParts = 
-							unlockTechs = advUnmanned
-						}
-						MechJebModuleRendezvousGuidance
-						{
-							unlockParts = 
-							unlockTechs = advUnmanned
-						}
-						MechJebModuleRoverController
-						{
-							ControlHeading = False
-							ControlSpeed = False
-							BrakeOnEject = False
-							BrakeOnEnergyDepletion = False
-							WarpToDaylight = True
-							StabilityControl = False
-							LimitAcceleration = False
-							unlockParts = 
-							unlockTechs = 
-							heading
-							{
-								_val = 0
-								_text = 0
-							}
-							speed
-							{
-								_val = 10
-								_text = 10
-							}
-						}
-						MechJebModuleRoverWindow
-						{
-							unlockParts = 
-							unlockTechs = fieldScience
-						}
-						MechJebModuleScript
-						{
-							minifiedGUI = False
-							selectedSlot = 0
-							vesselSaveName = Boudhal-lahouakbar
-							activeSavepoint = -1
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleSettings
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleSmartASS
-						{
-							mode = ORBITAL
-							target = OFF
-							advReference = INERTIAL
-							advDirection = FORWARD
-							forceRol = False
-							forcePitch = True
-							forceYaw = True
-							unlockParts = 
-							unlockTechs = flightControl
-							srfHdg
-							{
-								_val = 90
-								_text = 90
-							}
-							srfPit
-							{
-								_val = 90
-								_text = 90
-							}
-							srfRol
-							{
-								_val = 0
-								_text = 0
-							}
-							srfVelYaw
-							{
-								_val = 0
-								_text = 0
-							}
-							srfVelPit
-							{
-								_val = 0
-								_text = 0
-							}
-							srfVelRol
-							{
-								_val = 0
-								_text = 0
-							}
-							rol
-							{
-								_val = 0
-								_text = 0
-							}
-						}
-						MechJebModuleSmartRcs
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleSpaceplaneAutopilot
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleSpaceplaneGuidance
-						{
-							runwayIndex = 0
-							unlockParts = 
-							unlockTechs = unmannedTech
-						}
-						MechJebModuleStageStats
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleTargetController
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleThrustWindow
-						{
-							autostageSavedState = False
-							unlockParts = 
-							unlockTechs = advFlightControl
-						}
-						MechJebModuleTranslatron
-						{
-							unlockParts = 
-							unlockTechs = advFlightControl
-							trans_spd
-							{
-								_val = 0
-								_text = 0
-							}
-						}
-						MechJebModuleWarpHelper
-						{
-							unlockParts = 
-							unlockTechs = advFlightControl
-							phaseAngle
-							{
-								_val = 0
-								_text = 0
-							}
-						}
-						MechJebModuleWaypointWindow
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleWaypointHelpWindow
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						ModExtensionDemo
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleWarpController
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleSolarPanelController
-						{
-							prev_ShouldOpenSolarPanels = False
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleThrustController
-						{
-							limitThrottle = False
-							limiterMinThrottle = False
-							electricThrottle = False
-							unlockParts = 
-							unlockTechs = 
-							maxThrottle
-							{
-								_val = 1
-								_text = 100
-							}
-							minThrottle
-							{
-								_val = 0.050000000000000003
-								_text = 5
-							}
-							electricThrottleLo
-							{
-								_val = 0.050000000000000003
-								_text = 5
-							}
-							electricThrottleHi
-							{
-								_val = 0.14999999999999999
-								_text = 15
-							}
-						}
-						MechJebModuleRCSController
-						{
-							unlockParts = 
-							unlockTechs = 
-							Tf
-							{
-								_val = 1
-								_text = 1
-							}
-							Kp
-							{
-								_val = 0.125
-								_text = 0.125
-							}
-							Ki
-							{
-								_val = 0.070000000000000007
-								_text = 0.07
-							}
-							Kd
-							{
-								_val = 0.53000000000000003
-								_text = 0.53
-							}
-						}
-						MechJebModuleRCSBalancer
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleAttitudeController
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleStagingController
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleFlightRecorder
-						{
-							markUT = 30495858.472514894
-							deltaVExpended = NaN
-							dragLosses = 0
-							gravityLosses = 3535.4732291997047
-							steeringLosses = NaN
-							markLAN = 34.122051490510714
-							markLatitude = 0.32504539454605513
-							markLongitude = 8.6139903885774523
-							markAltitude = 4752500.3708299622
-							markBodyIndex = 6
-							maxDragGees = 0
-							unlockParts = 
-							unlockTechs = 
-						}
-						MechJebModuleFlightRecorderGraph
-						{
-							unlockParts = 
-							unlockTechs = 
-						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -9396,8 +8873,8 @@ GAME
 				attN = bottom, 4
 				mass = 0.00999999978
 				shielded = False
-				temp = 165.64344354591822
-				tempExt = 165.48017043124813
+				temp = 165.64859648080906
+				tempExt = 165.47850934292424
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9415,23 +8892,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -9467,8 +8927,8 @@ GAME
 				srfN = srfAttach, 1
 				mass = 0.0299999993
 				shielded = False
-				temp = 165.61015990856211
-				tempExt = 165.44160024215913
+				temp = 165.61621967536598
+				tempExt = 165.43957316862046
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9520,23 +8980,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -9560,8 +9003,8 @@ GAME
 				srfN = srfAttach, 1
 				mass = 0.0299999993
 				shielded = False
-				temp = 165.61706690167804
-				tempExt = 165.45126200414532
+				temp = 165.62373469584523
+				tempExt = 165.45109650321243
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9623,23 +9066,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -9665,8 +9091,8 @@ GAME
 				attN = top, 1
 				mass = 0.0500000007
 				shielded = False
-				temp = 165.88465588381595
-				tempExt = 165.8072056923051
+				temp = 165.88264596072602
+				tempExt = 165.80139259042824
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9720,23 +9146,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -9762,8 +9171,8 @@ GAME
 				attN = bottom, 6
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.1251746274622
-				tempExt = 166.06957707689102
+				temp = 166.11489938313454
+				tempExt = 166.05819367236634
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9781,23 +9190,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -9846,8 +9238,8 @@ GAME
 				attN = bottom, 7
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.36732213549209
-				tempExt = 166.26756829863396
+				temp = 166.34806040286915
+				tempExt = 166.25170485537936
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9865,23 +9257,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -9930,8 +9305,8 @@ GAME
 				attN = bottom, 8
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.60751007116977
-				tempExt = 166.44030216176478
+				temp = 166.57831991652756
+				tempExt = 166.42384036373073
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -9949,23 +9324,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -10014,8 +9372,8 @@ GAME
 				attN = bottom, 9
 				mass = 0.0375000015
 				shielded = False
-				temp = 166.73592529222293
-				tempExt = 166.68634614936428
+				temp = 166.71065671149643
+				tempExt = 166.65962136452637
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10033,23 +9391,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -10098,8 +9439,8 @@ GAME
 				attN = bottom, 10
 				mass = 0.0375000015
 				shielded = False
-				temp = 166.77594786284104
-				tempExt = 166.71047897519955
+				temp = 166.7482501702743
+				tempExt = 166.68253749781655
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10117,23 +9458,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -10182,8 +9506,8 @@ GAME
 				attN = bottom, 11
 				mass = 0.0375000015
 				shielded = False
-				temp = 166.80962296812197
-				tempExt = 166.7441436643883
+				temp = 166.77995850301423
+				tempExt = 166.71490370751312
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10201,23 +9525,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -10266,8 +9573,8 @@ GAME
 				attN = bottom, 12
 				mass = 0.0375000015
 				shielded = False
-				temp = 166.83731736917701
-				tempExt = 166.77228143154144
+				temp = 166.80614196834696
+				tempExt = 166.74272249781822
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10285,23 +9592,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -10350,8 +9640,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.100000001
 				shielded = False
-				temp = 166.86830149892626
-				tempExt = 166.81232464393784
+				temp = 166.83561927969797
+				tempExt = 166.78582041475789
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 1
@@ -10486,23 +9776,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -10529,8 +9802,8 @@ GAME
 				srfN = srfAttach, 7
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.60384817548118
-				tempExt = 166.3062301880037
+				temp = 166.57586902926982
+				tempExt = 166.27588278584366
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10555,7 +9828,7 @@ GAME
 					isEnabled = True
 					efficiencyMult = 1
 					launchUT = 8334253.405265063
-					currentRotation = (-0.341766983, -0.619132161, 0.619006217, 0.34161678)
+					currentRotation = (-0.341767937, -0.619131327, 0.619006932, 0.341616094)
 					storedAnimationTime = 0
 					storedAnimationSpeed = 0
 					deployState = EXTENDED
@@ -10577,23 +9850,6 @@ GAME
 						{
 							actionGroup = None
 						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
 					}
 					UPGRADESAPPLIED
 					{
@@ -10625,8 +9881,8 @@ GAME
 				srfN = srfAttach, 7
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.72121822896662
-				tempExt = 167.0856556121588
+				temp = 166.69568833057264
+				tempExt = 166.92572391446649
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10651,7 +9907,7 @@ GAME
 					isEnabled = True
 					efficiencyMult = 1
 					launchUT = 8334253.405265063
-					currentRotation = (-0.396770567, -0.585350633, 0.585158825, 0.396896631)
+					currentRotation = (-0.396771729, -0.585350752, 0.585157335, 0.396897435)
 					storedAnimationTime = 0
 					storedAnimationSpeed = 0
 					deployState = EXTENDED
@@ -10673,23 +9929,6 @@ GAME
 						{
 							actionGroup = None
 						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
 					}
 					UPGRADESAPPLIED
 					{
@@ -10721,8 +9960,8 @@ GAME
 				srfN = srfAttach, 7
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.74624585275888
-				tempExt = 167.34708030484896
+				temp = 166.72824993798372
+				tempExt = 167.42222806832942
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10747,7 +9986,7 @@ GAME
 					isEnabled = True
 					efficiencyMult = 1
 					launchUT = 8334253.405265063
-					currentRotation = (-0.341706693, 0.619073033, -0.618889987, 0.341994733)
+					currentRotation = (-0.341704637, 0.619073689, -0.618889093, 0.341997236)
 					storedAnimationTime = 0
 					storedAnimationSpeed = 0
 					deployState = EXTENDED
@@ -10769,23 +10008,6 @@ GAME
 						{
 							actionGroup = None
 						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
 					}
 					UPGRADESAPPLIED
 					{
@@ -10817,8 +10039,8 @@ GAME
 				srfN = srfAttach, 7
 				mass = 0.0250000004
 				shielded = False
-				temp = 166.60308534203855
-				tempExt = 166.30493806156201
+				temp = 166.57576862056561
+				tempExt = 166.27599706258627
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10843,7 +10065,7 @@ GAME
 					isEnabled = True
 					efficiencyMult = 1
 					launchUT = 8334253.405265063
-					currentRotation = (-0.396772683, 0.585294604, -0.585289359, 0.396784723)
+					currentRotation = (-0.396777332, 0.585289538, -0.585291624, 0.396784067)
 					storedAnimationTime = 0
 					storedAnimationSpeed = 0
 					deployState = EXTENDED
@@ -10865,23 +10087,6 @@ GAME
 						{
 							actionGroup = None
 						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
 					}
 					UPGRADESAPPLIED
 					{
@@ -10912,8 +10117,8 @@ GAME
 				attN = bottom, 0
 				mass = 0.00999999978
 				shielded = False
-				temp = 165.00064336645769
-				tempExt = 165.05236563986949
+				temp = 165.02211160595635
+				tempExt = 165.07669833669348
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -10931,23 +10136,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -10984,8 +10172,8 @@ GAME
 				attN = bottom, 17
 				mass = 0.200000003
 				shielded = False
-				temp = 165.16114598857777
-				tempExt = 165.29983951019113
+				temp = 165.18890242689832
+				tempExt = 165.3277899187882
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11065,23 +10253,6 @@ GAME
 				}
 				MODULE
 				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
 					name = ModuleSCANresourceScanner
 					isEnabled = True
 					scanning = False
@@ -11151,8 +10322,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.0149999997
 				shielded = False
-				temp = 164.96941745618656
-				tempExt = 164.98682376029015
+				temp = 164.99074938188869
+				tempExt = 165.01009752401109
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11192,23 +10363,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -11232,8 +10386,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.00499999989
 				shielded = False
-				temp = 164.98169995746375
-				tempExt = 164.99655633587997
+				temp = 165.00323201886138
+				tempExt = 165.01998944245548
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11308,23 +10462,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -11351,8 +10488,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.00499999989
 				shielded = False
-				temp = 164.99395133979681
-				tempExt = 164.98858178085524
+				temp = 165.01568576505647
+				tempExt = 165.01191028517346
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11370,23 +10507,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -11425,8 +10545,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.00499999989
 				shielded = False
-				temp = 164.99395133979681
-				tempExt = 164.98858178085524
+				temp = 165.01568576505647
+				tempExt = 165.01191028517346
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11444,23 +10564,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -11499,8 +10602,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.00499999989
 				shielded = False
-				temp = 164.99395133979681
-				tempExt = 164.98858178085524
+				temp = 165.01568576505647
+				tempExt = 165.01191028517346
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11518,23 +10621,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -11573,8 +10659,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.00499999989
 				shielded = False
-				temp = 164.99395133979681
-				tempExt = 164.98858178085524
+				temp = 165.01568576505647
+				tempExt = 165.01191028517346
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11592,23 +10678,6 @@ GAME
 				}
 				PARTDATA
 				{
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
 				}
 				RESOURCE
 				{
@@ -11644,8 +10713,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 165.45620941166894
-				tempExt = 165.21074544579778
+				temp = 165.46646568899365
+				tempExt = 165.21880867849259
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11720,23 +10789,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -11760,8 +10812,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 165.43322590697224
-				tempExt = 165.27426001509792
+				temp = 165.44291985164787
+				tempExt = 165.2824207749571
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11836,23 +10888,6 @@ GAME
 					{
 					}
 				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
 			}
 			PART
 			{
@@ -11878,8 +10913,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.300000012
 				shielded = False
-				temp = 164.91910818347355
-				tempExt = 165.00272516448925
+				temp = 164.93596329172323
+				tempExt = 165.03003070543878
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -11914,23 +10949,6 @@ GAME
 						{
 							actionGroup = None
 						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
 					}
 					UPGRADESAPPLIED
 					{
@@ -11993,8 +11011,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.300000012
 				shielded = False
-				temp = 164.34124893231225
-				tempExt = 164.35537523414314
+				temp = 164.3520201446602
+				tempExt = 164.39051052892421
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -12029,23 +11047,6 @@ GAME
 						{
 							actionGroup = None
 						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
 					}
 					UPGRADESAPPLIED
 					{
@@ -12106,8 +11107,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 165.39935657363367
-				tempExt = 165.28313417185251
+				temp = 165.4087242684088
+				tempExt = 165.29168867408688
 				tempExtUnexp = 4
 				expt = 0.5
 				state = 0
@@ -12131,23 +11132,6 @@ GAME
 					name = FlightEngineerModule
 					isEnabled = True
 					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FMRS_PM
-					isEnabled = True
-					stagingEnabled = True
-					MM_DYNAMIC = true
-					parent_vessel = 0
 					EVENTS
 					{
 					}
@@ -12192,9 +11176,9 @@ GAME
 			}
 			CTRLSTATE
 			{
-				pitch = -4.54014889E-06
-				yaw = -4.51104552E-06
-				roll = 7.76851994E-06
+				pitch = -3.80438536E-07
+				yaw = 4.79085156E-06
+				roll = -2.21806476E-06
 				trimPitch = 0
 				trimYaw = 0
 				trimRoll = 0
@@ -12247,13 +11231,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 0
-				ECC = 1
-				INC = 1.2803883521631343
+				SMA = 161163.18510826345
+				ECC = 0.99999999999999989
+				INC = 1.2803883521477619
 				LPE = 270
-				LAN = 265.50993968890265
-				MNA = 0
-				EPH = 51635720.747097403
+				LAN = 266.4666744002144
+				MNA = -3.1415926207170166
+				EPH = 51635894.867125943
 				REF = 6
 			}
 			PART
@@ -17660,13 +16644,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 0
+				SMA = NaN
 				ECC = 1
-				INC = 1.2793815104586144
+				INC = 1.2793815104591844
 				LPE = 270
-				LAN = 265.50961409625529
+				LAN = 266.4663488075596
 				MNA = 0
-				EPH = 51635720.747097403
+				EPH = 51635894.867125943
 				REF = 6
 			}
 			PART
@@ -18716,8 +17700,8 @@ GAME
 			prst = False
 			ref = 0
 			ctrl = True
-			cPch = 0.09599989
-			cHdg = 2.02
+			cPch = 
+			cHdg = 
 			cMod = 0
 			ORBIT
 			{
@@ -22193,25 +21177,25 @@ GAME
 		KerbalEngineer v1.1.2.8 = True
 		KerbalEngineer.Unity v1.0.0.0 = True
 		HyperEdit v1.5.3.0 = True
-		ModularFlightIntegrator v1.0.0.0 / v1.2.3.0 = False
+		ModularFlightIntegrator v1.0.0.0 / v1.2.3.0 = True
 		Kopernicus.Components v1.0.0.0 = True
 		Kopernicus.OnDemand v1.0.0.0 = True
 		Kopernicus v1.0.0.0 = True
 		Kopernicus.Parser v1.0.0.0 = True
-		ksp-advanced-flybywire v1.1.0.0 = False
-		XInputDotNetPure v1.0.0.0 = False
+		ksp-advanced-flybywire v1.1.0.0 = True
+		XInputDotNetPure v1.0.0.0 = True
 		MiniAVC v1.0.3.0 = True
 		PlanetShine v1.0.6121.34655 = True
 		ReentryParticleEffect v1.2.0.0 = True
-		scatterer v1.0.6232.39933 = False
+		scatterer v1.0.6232.39933 = True
 		TextureReplacer v2.5.4.0 = True
-		Trajectories v1.6.6.0 = False
-		[x] Science! v5.4.6185.40021 = False
+		Trajectories v1.6.6.0 = True
+		[x] Science! v5.4.6185.40021 = True
 		000_Toolbar = True
 		AviationLights = True
 		BetterBurnTime = True
 		BetterCrewAssignment = True
-		BoulderCo = False
+		BoulderCo = True
 		DistantObject = True
 		EasyBoard = True
 		EnvironmentalVisualEnhancements = True
@@ -22220,7 +21204,7 @@ GAME
 		KerbalEngineer = True
 		Kerbaltek = True
 		Kopernicus = True
-		ksp-advanced-flybywire = False
+		ksp-advanced-flybywire = True
 		ModularFlightIntegrator = True
 		PlanetShine = True
 		ReentryParticleEffect = True
@@ -22252,35 +21236,35 @@ GAME
 		ContractPacks = True
 		spacetux = True
 		TriggerTech = True
-		ModuleManager v2.7.2.0 = True
-		aaa_Toolbar v1.0.0.0 / v1.7.13.0 = True
-		EasyVesselSwitch v1.2.0.0 / v1.2.0 for KSP v1.2 = True
-		KSPDev_Utils.0.19.0 v0.19.0.0 / v0.19.0 for KSP v1.2 = True
-		EVAEnhancementsContinued v0.1.6.0 / v1.1.1.0 = False
-		KAS v0.6.2.0 / v0.6.2 for KSP 1.2 = True
-		MiniAVC v1.0.3.1 = True
-		KIS v1.4.3.0 / v1.4.3 for KSP 1.2 = True
-		KSPDev_Utils.0.20.0 v0.20.0.0 / v0.20.0 for KSP v1.2 = True
-		scatterer v1.0.6231.33139 = True
-		Trajectories v1.6.5.0 = True
-		WhoAmI v1.0.2.0 = True
-		EasyVesselSwitch = True
-		KAS = True
-		KIS = True
-		WhoAmI = True
-		ModuleManager-License.txt = True
-		ModuleManager.2.7.1.dll = True
-		toolbar-settings.dat = True
+		ModuleManager v2.7.2.0 = False
+		aaa_Toolbar v1.0.0.0 / v1.7.13.0 = False
+		EasyVesselSwitch v1.2.0.0 / v1.2.0 for KSP v1.2 = False
+		KSPDev_Utils.0.19.0 v0.19.0.0 / v0.19.0 for KSP v1.2 = False
+		EVAEnhancementsContinued v0.1.6.0 / v1.1.1.0 = True
+		KAS v0.6.2.0 / v0.6.2 for KSP 1.2 = False
+		MiniAVC v1.0.3.1 = False
+		KIS v1.4.3.0 / v1.4.3 for KSP 1.2 = False
+		KSPDev_Utils.0.20.0 v0.20.0.0 / v0.20.0 for KSP v1.2 = False
+		scatterer v1.0.6231.33139 = False
+		Trajectories v1.6.5.0 = False
+		WhoAmI v1.0.2.0 = False
+		EasyVesselSwitch = False
+		KAS = False
+		KIS = False
+		WhoAmI = False
+		ModuleManager-License.txt = False
+		ModuleManager.2.7.1.dll = False
+		toolbar-settings.dat = False
 		Science-Full-reward.cfg = True
-		LICENSE = False
-		EVAEnhancementsContinued v0.1.8.0 / v1.1.1.0 = True
-		FMRS v1.2.3.1 / v1.0.2.0 = True
-		ModularFlightIntegrator v1.0.0.0 / v1.2.4.0 = True
-		MechJeb2 v2.5.1.0 / v / v2.6.0.0 = True
-		[x] Science! v5.6.6303.22012 = True
-		FMRS = True
-		MechJeb2 = True
-		MechJebAndEngineerForAll.cfg = True
+		LICENSE = True
+		EVAEnhancementsContinued v0.1.8.0 / v1.1.1.0 = False
+		FMRS v1.2.3.1 / v1.0.2.0 = False
+		ModularFlightIntegrator v1.0.0.0 / v1.2.4.0 = False
+		MechJeb2 v2.5.1.0 / v / v2.6.0.0 = False
+		[x] Science! v5.6.6303.22012 = False
+		FMRS = False
+		MechJeb2 = False
+		MechJebAndEngineerForAll.cfg = False
 	}
 	ROSTER
 	{
